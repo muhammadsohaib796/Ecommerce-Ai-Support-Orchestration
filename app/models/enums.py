@@ -20,6 +20,6 @@ class PaymentStatus(str, enum.Enum):
 
 # Business rule: an order can be modified until it is packed.
 MODIFIABLE_ORDER_STATUSES = {
-    OrderStatus.PLACED,
-    OrderStatus.PROCESSING,
+    OrderStatus.PLACED.value,
+    OrderStatus.PROCESSING.value,
 }
