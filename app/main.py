@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from app.database import engine
 
+from app.models.customer import Customer
+
 app = FastAPI(title="AI Support Orchestration")
 
 
@@ -8,10 +10,6 @@ app = FastAPI(title="AI Support Orchestration")
 def root():
     return {"message": " Ecommerece AI Support Orchestration API is running"}
 
-
-@app.get("/")
-def root():
-    return {"message": "AI Support Orchestration API is running"}
 
 
 @app.get("/db-test")
