@@ -16,6 +16,9 @@ class SupportTicket(Base):
     order_id: Mapped[int | None] = mapped_column(ForeignKey("orders.id"))
     subject: Mapped[str] = mapped_column(String(255))
     intent: Mapped[str | None] = mapped_column(String(50))
+    reason: Mapped[str | None] = mapped_column(Text)
+    resolution_type: Mapped[str | None] = mapped_column(String(30))
+    resolution_plan: Mapped[str | None] = mapped_column(Text)
     status: Mapped[str] = mapped_column(String(30), default=TicketStatus.NEW.value)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

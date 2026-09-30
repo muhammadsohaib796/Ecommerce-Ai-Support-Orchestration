@@ -33,8 +33,21 @@ class TicketStatus(str, enum.Enum):
     RESOLVED = "RESOLVED"
     ESCALATED = "ESCALATED"
 
+
+class ActionStatus(str, enum.Enum):
+    PENDING = "PENDING"
+    SUCCESS = "SUCCESS"
+    FAILED = "FAILED"
+
+
+class ResolutionType(str, enum.Enum):
+    MODIFY = "MODIFY"
+    CANCEL_AND_REFUND = "CANCEL_AND_REFUND"
+    REJECT = "REJECT"
+    ESCALATE = "ESCALATE"
+
 # Business rule: an order can be modified until it is packed.
 MODIFIABLE_ORDER_STATUSES = {
     OrderStatus.PLACED.value,
-    OrderStatus.PROCESSING.value
+    OrderStatus.PROCESSING.value,
 }
