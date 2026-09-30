@@ -18,8 +18,23 @@ class PaymentStatus(str, enum.Enum):
     REFUNDED = "REFUNDED"
 
 
+class RefundStatus(str, enum.Enum):
+    PENDING = "PENDING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class TicketStatus(str, enum.Enum):
+    NEW = "NEW"
+    INVESTIGATING = "INVESTIGATING"
+    AWAITING_APPROVAL = "AWAITING_APPROVAL"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+    RESOLVED = "RESOLVED"
+    ESCALATED = "ESCALATED"
+
 # Business rule: an order can be modified until it is packed.
 MODIFIABLE_ORDER_STATUSES = {
     OrderStatus.PLACED.value,
-    OrderStatus.PROCESSING.value,
+    OrderStatus.PROCESSING.value
 }
