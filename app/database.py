@@ -21,3 +21,13 @@ SessionLocal = sessionmaker(
 
 class Base(DeclarativeBase):
     pass
+
+
+
+def get_db():
+    # Gives each request its own database session and always closes it
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
