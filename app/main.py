@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from app.database import engine
-from app.routers import store
+from app.routers import health, store
 
 
 from app.models.customer import Customer
 
 app = FastAPI(title="AI Support Orchestration")
+app.include_router(health.router)
 app.include_router(store.router)
 
 @app.get("/")
